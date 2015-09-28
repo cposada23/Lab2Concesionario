@@ -8,6 +8,10 @@
         <servlet-name>VendedorServlet</servlet-name>
         <servlet-class>com.controlador.VendedorServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>indexServlet</servlet-name>
+        <servlet-class>com.controlador.indexServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>VendedorServlet</servlet-name>
         <url-pattern>/VendedorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>indexServlet</servlet-name>
+        <url-pattern>/indexServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

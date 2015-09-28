@@ -79,7 +79,7 @@ public class ClienteServlet extends HttpServlet {
         //Reenvio de objetos hacia la vista (index.jsp)
         request.setAttribute("cliente", cliente);//si es solo 1 objeto
         request.setAttribute("allClientes", clienteDAO.getAllClientes());
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("cliente.jsp").forward(request, response);
         
         
     }
