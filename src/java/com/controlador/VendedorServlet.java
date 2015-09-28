@@ -38,31 +38,53 @@ public class VendedorServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
-        //Capturamos los datos desde el formulario
-        String documetoVendedorStr = request.getParameter("documento");
-        int documento = 0;
-        if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
-            documento= Integer.parseInt(documetoVendedorStr);
-        }
-
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String email = request.getParameter("email");
-        String telefono = request.getParameter("telefono");
         
-        
-        //llamo el contructor con parametros
-        Vendedor vendedor = new Vendedor(documento, nombre, apellido, email, telefono);
+        Vendedor vendedor = null;
+        String documetoVendedorStr;
+        String nombre;
+        String apellido;
+        String email;
+        String telefono;
         //Realizo las acciones del boton segun el evento capturado
-        if("Add".equalsIgnoreCase(action)){
-            vendedorDAO.addVendedor(vendedor);
-        }else if("Edit".equalsIgnoreCase(action)){
-            vendedorDAO.editVendedor(vendedor);
+        if("Add".equalsIgnoreCase(action) || "Edit".equalsIgnoreCase(action) ){
+            //Capturamos los datos desde el formulario
+            documetoVendedorStr = request.getParameter("documento");
+            int documento = 0;
+            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
+                documento= Integer.parseInt(documetoVendedorStr);
+            }
+
+            nombre = request.getParameter("nombre");
+            apellido = request.getParameter("apellido");
+            email = request.getParameter("email");
+            telefono = request.getParameter("telefono");
+
+
+            //llamo el contructor con parametros
+            vendedor = new Vendedor(documento, nombre, apellido, email, telefono);
+            if("Add".equalsIgnoreCase(action)){
+                vendedorDAO.addVendedor(vendedor);
+            }
+            else if ("Edit".equalsIgnoreCase(action)){
+                vendedorDAO.editVendedor(vendedor);
+            }
         }else if("Delete".equalsIgnoreCase(action)){
-            vendedorDAO.deleteVendedor(documento);
+           documetoVendedorStr = request.getParameter("documento");
+           int documento = 0;
+            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
+                documento= Integer.parseInt(documetoVendedorStr);
+            }
+           vendedorDAO.deleteVendedor(documento);
         }else if("Search".equalsIgnoreCase(action)){
-            vendedorDAO.getVendedor(documento);
+            documetoVendedorStr = request.getParameter("documento");
+            int documento = 0;
+            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
+                documento= Integer.parseInt(documetoVendedorStr);
+            }
+            vendedor = vendedorDAO.getVendedor(documento);
         }
+        
+           
         //Reenvio de objetos hacia la vista (index.jsp)
         request.setAttribute("vendedor", vendedor);//si es solo 1 objeto
         request.setAttribute("allVendedores", vendedorDAO.getAllVendedores());
