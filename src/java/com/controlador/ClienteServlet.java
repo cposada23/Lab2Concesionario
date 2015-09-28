@@ -26,34 +26,55 @@ public class ClienteServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        Cliente cliente = null;
+        String documetoClienteStr;
+        String nombre;
+        String apellido;
+        String email;
+        String telefono;
         response.setContentType("text/html;charset=UTF-8");
         
         //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
-        //Capturamos los datos desde el formulario
-        String documetoClienteStr = request.getParameter("documento");
-        int documento = 0;
-        if (documetoClienteStr != null && !documetoClienteStr.equals("")) {
-            documento= Integer.parseInt(documetoClienteStr);
-        }
-
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String email = request.getParameter("email");
-        String telefono = request.getParameter("telefono");
         
-        
-        //llamo el contructor con parametros
-        Cliente cliente = new Cliente(documento, nombre, apellido, email, telefono);
         //Realizo las acciones del boton segun el evento capturado
-        if("Add".equalsIgnoreCase(action)){
-            clienteDAO.addCliente(cliente);
-        }else if("Edit".equalsIgnoreCase(action)){
-            clienteDAO.editCliente(cliente);
+        if("Add".equalsIgnoreCase(action) || "Edit".equalsIgnoreCase(action) ){
+            //Capturamos los datos desde el formulario
+            documetoClienteStr = request.getParameter("documento");
+            int documento = 0;
+            if (documetoClienteStr != null && !documetoClienteStr.equals("")) {
+                documento= Integer.parseInt(documetoClienteStr);
+            }
+
+            nombre = request.getParameter("nombre");
+            apellido = request.getParameter("apellido");
+            email = request.getParameter("email");
+            telefono = request.getParameter("telefono");
+
+
+            //llamo el contructor con parametros
+            cliente = new Cliente(documento, nombre, apellido, email, telefono);
+            if("Add".equalsIgnoreCase(action)){
+                clienteDAO.addCliente(cliente);
+            }
+            else if ("Edit".equalsIgnoreCase(action)){
+                clienteDAO.editCliente(cliente);
+            }
         }else if("Delete".equalsIgnoreCase(action)){
-            clienteDAO.deleteCliente(documento);
+           documetoClienteStr = request.getParameter("documento");
+           int documento = 0;
+            if (documetoClienteStr != null && !documetoClienteStr.equals("")) {
+                documento= Integer.parseInt(documetoClienteStr);
+            }
+           clienteDAO.deleteCliente(documento);
         }else if("Search".equalsIgnoreCase(action)){
-            clienteDAO.getCliente(documento);
+            documetoClienteStr = request.getParameter("documento");
+            int documento = 0;
+            if (documetoClienteStr != null && !documetoClienteStr.equals("")) {
+                documento= Integer.parseInt(documetoClienteStr);
+            }
+            cliente = clienteDAO.getCliente(documento);
         }
         //Reenvio de objetos hacia la vista (index.jsp)
         request.setAttribute("cliente", cliente);//si es solo 1 objeto
