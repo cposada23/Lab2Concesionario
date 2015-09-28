@@ -1,9 +1,8 @@
 <%-- 
-    Document   : index
-    Created on : 27/09/2015, 07:34:58 PM
+    Document   : vendedor
+    Created on : 27/09/2015, 07:57:19 PM
     Author     : cposa
 --%>
-
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,28 +14,28 @@
         <title>JSP Page</title>
     </head>
      <body>
-        <h1>Informacion de Clientes</h1>
-        <form action="./ClienteServlet" method="POST">
+        <h1>Vendedores</h1>
+        <form action="./VendedorServlet" method="POST">
         <table>
             <tr>
                 <th> Documento Cliente</th>
-                <th><input type="text" name="documento" value="${cliente.documento}"/> </th>
+                <th><input type="text" name="documento" value="${vendedor.documento}"/> </th>
             </tr>
             <tr>
                 <th> Nombre</th>
-                 <th> <input type="text" name="nombre" value="${cliente.nombre}"/></th>
+                 <th> <input type="text" name="nombre" value="${vendedor.nombre}"/></th>
             </tr>
              <tr>
                 <th>Apelido</th>
-                 <th><input type="text" name="apellido" value="${cliente.apellido}"/> </th>
+                 <th><input type="text" name="apellido" value="${vendedor.apellido}"/> </th>
             </tr>
              <tr>
                 <th> e-mail</th>
-                 <th> <input type="text" name="email" value="${cliente.email}"/></th>
+                 <th> <input type="text" name="email" value="${vendedor.email}"/></th>
             </tr>
             <tr>
                 <th> Telefono</th>
-                 <th> <input type="text" name="telefono" value="${cliente.telefono}"/></th>
+                 <th> <input type="text" name="telefono" value="${vendedor.telefono}"/></th>
             </tr>
              <tr>
                  <td colspan="2">
@@ -59,13 +58,13 @@
                 <th>e-mail</th>
                 <th>telefono</th>
                 
-                <c:forEach items="${allClientes}" var="cli">
+                <c:forEach items="${allVendedores}" var="ven">
                     <tr>
-                        <td>${cli.documento}</td>
-                        <td>${cli.nombre}</td>
-                        <td>${cli.apellido}</td>
-                        <td>${cli.email}</td>
-                        <td>${cli.telefono}</td>
+                        <td>${ven.documento}</td>
+                        <td>${ven.nombre}</td>
+                        <td>${ven.apellido}</td>
+                        <td>${ven.email}</td>
+                        <td>${ven.telefono}</td>
                     </tr>
                 </c:forEach>
            </table>
