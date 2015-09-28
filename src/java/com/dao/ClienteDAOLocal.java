@@ -22,8 +22,10 @@ public interface ClienteDAOLocal {
 
     void deleteCliente(int documentoCliente);
 
-    Cliente getCliente(Cliente documentoCliente);
+    
 
     List<Cliente> getAllClientes();
+
+    Cliente getCliente(int documentoCliente);
     
 }

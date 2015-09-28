@@ -8,6 +8,8 @@ package com.dao;
 import com.modelo.Cliente;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -15,27 +17,34 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class ClienteDAO implements ClienteDAOLocal {
+     
+    @PersistenceContext
 
+    private EntityManager em;
+    
     @Override
     public void addCliente(Cliente cliente) {
+        em.persist(cliente);
     }
 
     @Override
     public void editCliente(Cliente cliente) {
+        em.merge(cliente);
     }
 
     @Override
     public void deleteCliente(int documentoCliente) {
+        em.remove(getCliente(documentoCliente));
     }
-
-    @Override
-    public Cliente getCliente(Cliente documentoCliente) {
-        return null;
-    }
-
+    
     @Override
     public List<Cliente> getAllClientes() {
-        return null;
+        return em.createNamedQuery("cliente.getAll").getResultList();
+    }
+
+    @Override
+    public Cliente getCliente(int documentoCliente) {
+        return  em.find(Cliente.class, documentoCliente);
     }
     
     
