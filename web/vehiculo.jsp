@@ -13,11 +13,11 @@
         <title>JSP Page</title>
     </head>
      <body>
-        <h1>Modelos </h1>
+        <h1>Vehiculos </h1>
         <form action="./VehiculoServlet" method="POST" enctype="multipart/form-data">
         <table>
             <tr>
-                <th> Codigo modelo</th>
+                <th> Codigo Vehiculo</th>
                 <th><input type="text" name="codigo" value="${Vehiculo.codigo}"/> </th>
             </tr>
             <tr>
@@ -25,7 +25,7 @@
                  <th> <input type="text" name="precio" value="${Vehiculo.precio}"/></th>
             </tr>
              <tr>
-                <th> modelo</th>
+                <th> codigo modelo</th>
                  <th> <input type="text" name="modelo" value="${Vehiculo.modelo}"/></th>
             </tr>
              <tr>

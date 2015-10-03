@@ -38,7 +38,7 @@ public class VendedorServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
-        
+        System.out.println(action);
         Vendedor vendedor = null;
         String documetoVendedorStr;
         String nombre;
