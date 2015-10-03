@@ -16,29 +16,25 @@
             <form action="" method="POST">
                 <table>
                     <tr>
-                        <th> Codigo Venta</th>
-                        <th><input type="number" name="codigo" value="" required="true" size=""/></th>
+                        <th> Documento Cliente</th>
+                        <th><input type="number" name="documento" value="" required="true" size=""/></th>
                     </tr>
                     <tr>
-                        <th> fecha</th>
-                        <th> <input type="date" name="fecha" value="" required="true" size="50"/></th>
+                        <th> Nombre</th>
+                        <th> <input type="text" name="nombre" value="" required="true" size=""/></th>
                     </tr>
                     <tr>
-                        <th>Matricula</th>
-                        <th><input type="text" name="matricula" value="" required="true" size="50"/> </th>
+                        <th>Apelido</th>
+                        <th><input type="text" name="apellido" value="" required="true" size=""/> </th>
                     </tr>
                     <tr>
-                        <th>Codigo Vehiculo</th>
-                        <th> <input type="number" name="vehiculo" value="" required="true" size=""/></th>
+                        <th> e-mail</th>
+                        <th> <input type="email" name="email" value="" required="true" size=""/></th>
                     </tr>
                     <tr>
-                        <th>Documento Cliente </th>
-                        <th> <input type="number" name="cliente" value="" required="true" size=""/></th>
+                        <th> Telefono</th>
+                        <th> <input type="tel" name="telefono" value="" required="true" size=""/></th>
                     </tr>
-                    <tr>
-                        <th>Documento Vendedor </th>
-                        <th> <input type="number" name="vendedor" value="" required="true" size=""/></th>
-                    </tr>                    
                     <tr>
                         <th><button type="submit" name="action" value="Guardar">Guardar</button></th>
                         <th><button type="reset" value="Cancelar" name="Cancelar">Cancelar</button></th>
@@ -46,7 +42,6 @@
 
                 </table>
             </form>
-
         </div>
     </body>
 </html>

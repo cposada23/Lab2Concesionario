@@ -30,7 +30,7 @@
                             </li>
                             <li><a href="#"><i class="icon-camera"></i>CLIENTE</a>
                                 <ul class="sub-menu">
-                                    <li><a href="cliente.jsp" target="web-view">Agregar</a></li>
+                                    <li><a href="pages/clientes/nuevoCliente.jsp" target="web-view">Nuevo</a></li>
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Compras por cliente</a></li>
@@ -39,16 +39,17 @@
                             </li>                            
                             <li><a href="#"><i class="icon-camera"></i>VENDEDOR</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="pages/vendedor/nuevoVendedor.jsp" target="web-view">Nuevo</a></li>
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Ventas por vendedor</a></li>
-                                    <li><a href="#">Listar todos</a></li>
+                                    <li><a href="pages/vendedor/listar.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"><i class="icon-camera"></i>CARROS</a>
+                            <li><a href="#"><i class="icon-camera"></i>VEHICULOS</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="pages/vehiculos/nuevoVehiculo.jsp" target="web-view">Nuevo</a></li>
+                                    <li><a href="pages/vehiculos/nuevoModelo.jsp" target="web-view">Nuevo Modelo</a></li>
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Eliminar</a></li>

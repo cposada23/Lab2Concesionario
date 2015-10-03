@@ -28,3 +28,7 @@ th{
 input{
     height: 30px;
 }
+button{
+    height: 40px;
+    width: 90px;
+}
