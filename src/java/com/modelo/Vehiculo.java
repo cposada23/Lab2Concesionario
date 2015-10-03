@@ -18,6 +18,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -31,7 +32,7 @@ public class Vehiculo implements Serializable{
     public Vehiculo() {
     }
 
-    public Vehiculo(int codigo, int precio, int año, String modelo, Blob foto) {
+    public Vehiculo(int codigo, int precio, String año, int modelo, byte[] foto) {
         this.codigo = codigo;
         this.precio = precio;
         this.ano = año;
@@ -47,11 +48,14 @@ public class Vehiculo implements Serializable{
     @Column
     private int precio;
     @Column
-    private int ano;
+    private String ano;
+    
     @Column
-    private String modelo;
+    private int modelo;
+    
+    @Lob
     @Column
-    private Blob foto;
+    private byte[] foto;
 
     public int getCodigo() {
         return codigo;
@@ -69,27 +73,27 @@ public class Vehiculo implements Serializable{
         this.precio = precio;
     }
 
-    public int getAño() {
+    public String getAño() {
         return ano;
     }
 
-    public void setAño(int año) {
+    public void setAño(String año) {
         this.ano = año;
     }
 
-    public String getModelo() {
+    public int getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(int modelo) {
         this.modelo = modelo;
     }
 
-    public Blob getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(Blob foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
     

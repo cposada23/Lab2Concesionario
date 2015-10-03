@@ -21,6 +21,14 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ImagenVehiculoServlet</servlet-name>
+        <servlet-class>com.controlador.ImagenVehiculoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VentasServlet</servlet-name>
+        <servlet-class>com.controlador.VentasServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/ClienteServlet</url-pattern>
@@ -36,6 +44,14 @@
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImagenVehiculoServlet</servlet-name>
+        <url-pattern>/ImagenVehiculoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VentasServlet</servlet-name>
+        <url-pattern>/VentasServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

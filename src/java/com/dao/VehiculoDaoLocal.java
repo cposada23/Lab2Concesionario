@@ -26,4 +26,8 @@ public interface VehiculoDaoLocal {
     void deleteVehiculo(int documentoVehiculo);
 
     List<Vehiculo> getAllVehiculos();
+
+    byte[] cargarFoto(int codigoVehiculo);
+
+    List<Vehiculo> getVehiculosXModelo(int modelo);
 }

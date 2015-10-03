@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -43,7 +44,27 @@ public class VehiculoDao implements VehiculoDaoLocal {
 
     @Override
     public List<Vehiculo> getAllVehiculos() {
+        
+        
         return em.createNamedQuery("Vehiculo.getAll").getResultList();
     }
+
+    @Override
+    public byte[] cargarFoto(int codigoVehiculo) {
+        return em.find(Vehiculo.class, codigoVehiculo).getFoto();
+    }
+
+    @Override
+    public List<Vehiculo> getVehiculosXModelo(int modelo) {
+        Query query = em.createQuery("SELECT v FROM Vehiculo v WHERE v.modelo = :modelo");
+        query.setParameter("modelo", modelo);
+        return query.getResultList();
+    }
+    
+    
+    
+    
+    
+    
     
 }

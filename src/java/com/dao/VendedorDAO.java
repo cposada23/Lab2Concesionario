@@ -45,6 +45,7 @@ public class VendedorDAO implements VendedorDAOLocal {
     @Override
     public List<Vendedor> getAllVendedores() {
         return em.createNamedQuery("Vendedor.getAll").getResultList();
+       
     }
 
     
