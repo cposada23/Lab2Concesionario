@@ -5,6 +5,7 @@
  */
 package com.modelo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="cliente")
 @NamedQueries(@NamedQuery(name="cliente.getAll",query="SELECT c FROM Cliente c"))
-public class Cliente {
+public class Cliente implements Serializable {
 
     public Cliente(int documento, String nombre, String apellido, String email, String telefono) {
         this.documento = documento;

@@ -1,0 +1,98 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.modelo;
+
+import java.io.Serializable;
+
+/**
+ *
+ * @author Martin
+ */
+import java.io.Serializable;
+import java.sql.Blob;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="vehiculo")
+@NamedQueries(@NamedQuery(name="Vehiculo.getAll",query="SELECT v FROM Vehiculo v"))
+public class Vehiculo implements Serializable{
+
+    public Vehiculo() {
+    }
+
+    public Vehiculo(int codigo, int precio, int año, String modelo, Blob foto) {
+        this.codigo = codigo;
+        this.precio = precio;
+        this.ano = año;
+        this.modelo = modelo;
+        this.foto = foto;
+    }
+    
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column
+    private int codigo;
+    @Column
+    private int precio;
+    @Column
+    private int ano;
+    @Column
+    private String modelo;
+    @Column
+    private Blob foto;
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public int getAño() {
+        return ano;
+    }
+
+    public void setAño(int año) {
+        this.ano = año;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public Blob getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Blob foto) {
+        this.foto = foto;
+    }
+    
+    
+    
+}
