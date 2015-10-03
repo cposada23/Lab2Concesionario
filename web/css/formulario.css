@@ -1,0 +1,30 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 3/10/2015, 02:40:00 PM
+    Author     : alejandro
+*/
+
+.formu{
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+}
+table{
+    width: 100%;
+}
+tr{
+    width: 100%;
+}
+th{
+    width: 49%;
+    float: left;
+    margin-bottom: 20px;    
+    font-size: 30px;
+}
+input{
+    height: 30px;
+}

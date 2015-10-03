@@ -13,7 +13,7 @@
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
-    <body>
+    <body class="index">
         <div id="principal">
             <div id="header">
                 <div id="logo"><p style="float:left;margin:30px 0 0 28%;">Carros</p><p style="float:right;
@@ -21,32 +21,47 @@
                 <div id="menu">
                     <nav>
                         <ul class="menu">
-                            <li><a href="#"><i class="icon-home"></i>HOME</a>
+                            <li><a href="#"><i class="icon-home"></i>VENTAS</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Sub-Menu 1</a></li>
-                                    <li><a href="#">Sub-Menu 2</a></li>
-                                    <li><a href="#">Sub-Menu 3</a></li>
+                                    <li><a href="pages/ventas/nuevoVenta.jsp" target="web-view">Nueva</a></li>
+                                    <li><a href="#">Buscar</a></li>
+                                    <li><a href="#">Listar todos</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"><i class="icon-user"></i>ABOUT</a></li>
-                            <li><a href="#"><i class="icon-camera"></i>PORTFOLIO</a>
+                            <li><a href="#"><i class="icon-camera"></i>CLIENTE</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Sub-Menu 1</a></li>
-                                    <li><a href="#">Level 3 Menu</a>
-                                        <ul>
-                                            <li><a href="#">Sub-Menu 4</a></li>
-                                            <li><a href="#">Sub-Menu 5</a></li>
-                                            <li><a href="#">Sub-Menu 6</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="cliente.jsp" target="web-view">Agregar</a></li>
+                                    <li><a href="#">Buscar</a></li>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="#">Compras por cliente</a></li>
+                                    <li><a href="#">Listar todos</a></li>
+                                </ul>
+                            </li>                            
+                            <li><a href="#"><i class="icon-camera"></i>VENDEDOR</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="#">Buscar</a></li>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="#">Ventas por vendedor</a></li>
+                                    <li><a href="#">Listar todos</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#"><i class="icon-bullhorn"></i>BLOG</a></li>
-                            <li><a href="#"><i class="icon-envelope-alt"></i>CONTACT</a></li>
+                            <li><a href="#"><i class="icon-camera"></i>CARROS</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Agregar</a></li>
+                                    <li><a href="#">Buscar</a></li>
+                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="#">Eliminar</a></li>
+                                    <li><a href="#">Listar todos</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
                 </div>
             </div>
+                <div id="contenido">
+                    <iframe id="web-view"  name="web-view" src=""/>
+                </div>
         </div>
 
         <script type="text/javascript">
