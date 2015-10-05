@@ -25,7 +25,7 @@
                                 <ul class="sub-menu">
                                     <li><a href="pages/ventas/nuevoVenta.jsp" target="web-view">Nueva</a></li>
                                     <li><a href="#">Buscar</a></li>
-                                    <li><a href="#">Listar todos</a></li>
+                                    <li><a href="pages/ventas/listar.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>
                             <li><a href="#"><i class="icon-camera"></i>CLIENTE</a>
@@ -34,7 +34,7 @@
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Compras por cliente</a></li>
-                                    <li><a href="#">Listar todos</a></li>
+                                    <li><a href="pages/clientes/listar.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>                            
                             <li><a href="#"><i class="icon-camera"></i>VENDEDOR</a>
@@ -53,7 +53,8 @@
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Eliminar</a></li>
-                                    <li><a href="#">Listar todos</a></li>
+                                    <li><a href="pages/vehiculos/listar.jsp" target="web-view">Listar modelos</a></li>
+                                    <li><a href="pages/vehiculos/listarModelos.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>
                         </ul>

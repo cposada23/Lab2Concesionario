@@ -13,6 +13,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <table border="1">
+            <th>Documento</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>E-mail</th>
+            <th>Telefono</th>
         <c:forEach items="${allVendedores}" var="ven">
                     <tr>
                         <th>${ven.documento}</th>
@@ -22,5 +28,6 @@
                         <th>${ven.telefono}</th>
                     </tr>
                 </c:forEach>
+        </table>
     </body>
 </html>

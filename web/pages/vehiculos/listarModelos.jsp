@@ -19,7 +19,7 @@
             <th>Documento</th>
             <th>Nombre</th>
             <th>Tipo</th>
-
+ 
 
             <c:forEach items="${allModelos}" var="model">
                 <tr>
