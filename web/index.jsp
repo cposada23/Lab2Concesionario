@@ -53,8 +53,8 @@
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Eliminar</a></li>
-                                    <li><a href="listarVehiculos.jsp" target="web-view">Listar modelos</a></li>
-                                    <li><a href="listarModelos.jsp" target="web-view">Listar todos</a></li>
+                                    <li><a href="listarVehiculos.jsp" target="web-view">Listar Vehiculos</a></li>
+                                    <li><a href="listarModelos.jsp" target="web-view">Listar Modelos</a></li>
                                 </ul>
                             </li>
                         </ul>

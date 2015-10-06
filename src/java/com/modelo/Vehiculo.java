@@ -32,10 +32,10 @@ public class Vehiculo implements Serializable{
     public Vehiculo() {
     }
 
-    public Vehiculo(int codigo, int precio, String año, int modelo, byte[] foto) {
+    public Vehiculo(int codigo, int precio, String ano, int modelo, byte[] foto) {
         this.codigo = codigo;
         this.precio = precio;
-        this.ano = año;
+        this.ano = ano;
         this.modelo = modelo;
         this.foto = foto;
     }
@@ -77,8 +77,8 @@ public class Vehiculo implements Serializable{
         return ano;
     }
 
-    public void setAño(String año) {
-        this.ano = año;
+    public void setAño(String ano) {
+        this.ano = ano;
     }
 
     public int getModelo() {

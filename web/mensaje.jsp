@@ -15,7 +15,7 @@
     <body>
         <table>
             <tr>
-                <th> Estado</th>
+                
                 <th>${mensaje} </th>
             </tr>
             

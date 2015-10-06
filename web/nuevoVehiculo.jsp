@@ -18,19 +18,19 @@
                 <table>
                     <tr>
                         <th> Codigo Vehiculo</th>
-                        <th><input type="number" name="codigo" value="${Vehiculo.codigo}"required="true" size="" /> </th>
+                        <th><input type="number" name="codigo" required="true" size="" /> </th>
                     </tr>
                     <tr>
                         <th> Precio</th>
-                        <th> <input type="number" name="precio" value="${Vehiculo.precio}" required="true" size=""/></th>
+                        <th> <input type="number" name="precio"  required="true" size=""/></th>
                     </tr>
                     <tr>
                         <th> codigo modelo</th>
-                        <th> <input type="number" name="modelo" value="${Vehiculo.modelo}" required="true" size="" /></th>
+                        <th> <input type="number" name="modelo"  required="true" size="" /></th>
                     </tr>
                     <tr>
                         <th>Año</th>
-                        <th><input type="text" name="ano" value="${Vehiculo.ano}" required="true" size="" /> </th>
+                        <th><input type="text" name="ano"  required="true" size="" /> </th>
                     </tr>
                     <tr>
                         <th>Portrait Photo: </th>

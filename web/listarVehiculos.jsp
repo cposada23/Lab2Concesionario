@@ -13,7 +13,11 @@
         <title>Listar Vehiculos</title>
     </head>
     <body>
-
+        <h1>Informacion de Modelos</h1>
+        <form action="./VehiculoServlet" method="POST">
+             <input type="submit" name="action" value="Listar"/>
+        </form>
+        <br>
 
         <table border="1">
             <th>Codigo</th>
@@ -29,7 +33,7 @@
                     <th>${vehi.precio}</th>
                     <th>${vehi.modelo}</th>
                     <th><img src="vehiculo/image.html?id=${vehi.codigo}" /></td>
-                    <th>${vehi.ano}</th>
+                    <th>${vehi.año}</th>
 
                 </tr>
             </c:forEach>

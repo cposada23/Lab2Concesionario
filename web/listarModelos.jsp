@@ -14,9 +14,13 @@
     </head>
     <body>
 
-
+       <h1>Informacion de Modelos</h1>
+        <form action="./ModeloVehiculoServlet" method="POST">
+                 <input type="submit" name="action" value="Listar"/>
+            </form>
+            <br>
         <table border="1">
-            <th>Documento</th>
+            <th>Codigo</th>
             <th>Nombre</th>
             <th>Tipo</th>
  

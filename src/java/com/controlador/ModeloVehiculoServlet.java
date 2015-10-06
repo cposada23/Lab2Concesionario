@@ -42,7 +42,7 @@ public class ModeloVehiculoServlet extends HttpServlet {
         String tipo;
         String codigoStr;
         String mensaje=null;
-        
+        String page =null;
         
         //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
@@ -65,9 +65,16 @@ public class ModeloVehiculoServlet extends HttpServlet {
             modeloVehiculo = new ModeloVehiculo(codigo, nombre, tipo);
             if("Add".equalsIgnoreCase(action)){
                 if (modeloVehiculo2!=null){
+                    mensaje ="El modelo ya existe";
+                    request.setAttribute("mensaje", mensaje);
                     
+                }else{
+                    mensaje = "Modelo insertado correctamente";
+                    modeloVehiculoDAO.addModelo(modeloVehiculo);
+                    request.setAttribute("mensaje", mensaje);
                 }
-                modeloVehiculoDAO.addModelo(modeloVehiculo);
+                page = "mensaje.jsp";
+                
             }
             else if ("Edit".equalsIgnoreCase(action)){
                 modeloVehiculoDAO.editModelo(modeloVehiculo);
@@ -86,11 +93,14 @@ public class ModeloVehiculoServlet extends HttpServlet {
                 codigo= Integer.parseInt(codigoStr);
             }
             modeloVehiculo = modeloVehiculoDAO.getModelo(codigo);
+        }else if("Listar".equalsIgnoreCase(action)){
+            request.setAttribute("allModelos", modeloVehiculoDAO.getAllModelos());
+            page = "listarModelos.jsp";
         }
         //Reenvio de objetos hacia la vista (index.jsp)
         request.setAttribute("modeloVehiculo", modeloVehiculo);//si es solo 1 objeto
-        request.setAttribute("allModelos", modeloVehiculoDAO.getAllModelos());
-        request.getRequestDispatcher("modeloVehiculo.jsp").forward(request, response);
+        
+        request.getRequestDispatcher(page).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

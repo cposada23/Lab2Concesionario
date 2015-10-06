@@ -44,6 +44,7 @@ public class VehiculoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         Vehiculo vehiculo=null;
+        Vehiculo vehiculo2= null;
         
         int codigo;
         String codigoAux;
@@ -51,12 +52,12 @@ public class VehiculoServlet extends HttpServlet {
         String precioAux;
         String ano;
         String modeloAux;
-        
+        String mensaje= null;
         int modelo;
         
       
         String action = request.getParameter("action");
-        
+        String page = null;
    
       
           
@@ -85,42 +86,47 @@ public class VehiculoServlet extends HttpServlet {
             ano = request.getParameter("ano");
             
              //Defino el input stream para el archivo que subire
-        InputStream inputStream=null;
+            InputStream inputStream=null;
         
-        //Obtengo la parte del archivo a cargar en la peticion (multipart)
-        Part filePart=request.getPart("photo");
+            //Obtengo la parte del archivo a cargar en la peticion (multipart)
+            Part filePart=request.getPart("photo");
     
-        //Obtengo el input stream del archivo cargado
+            //Obtengo el input stream del archivo cargado
         
-        byte[] img= null;
-        //valido que no este vacio el archivo
-        if(filePart!=null){
-            inputStream=filePart.getInputStream();
-            //imprimo información para debbugin
-            System.out.println(filePart.getName());//imprimo el nombre del archivo
-            System.out.println(filePart.getSize());//imprimo el tamaño
-            System.out.println(filePart.getContentType());//imprimo el MIME
+            byte[] img= null;
+            //valido que no este vacio el archivo
+            if(filePart!=null){
+                inputStream=filePart.getInputStream();
+                //imprimo información para debbugin
+                System.out.println(filePart.getName());//imprimo el nombre del archivo
+                System.out.println(filePart.getSize());//imprimo el tamaño
+                System.out.println(filePart.getContentType());//imprimo el MIME
             
  
-            ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-            int nRead;
-            byte[] targetArray = new byte[inputStream.available()];
-            while ((nRead = inputStream.read(targetArray, 0, targetArray.length)) != -1) {
-                buffer.write(targetArray, 0, nRead);
+                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+                int nRead;
+                byte[] targetArray = new byte[inputStream.available()];
+                while ((nRead = inputStream.read(targetArray, 0, targetArray.length)) != -1) {
+                    buffer.write(targetArray, 0, nRead);
+                }
+                buffer.flush();
+                img = buffer.toByteArray();
             }
- 
-            buffer.flush();
-            img = buffer.toByteArray();
-
-            
-        }
        
 
 
             //llamo el contructor con parametros
             vehiculo = new Vehiculo(codigo,  precio,  ano,  modelo,img);
             if("Add".equalsIgnoreCase(action)){
-                vehiculoDao.addVehiculo(vehiculo);
+                vehiculo2  = vehiculoDao.getVehiculo(codigo);
+                if(vehiculo2!=null){
+                    mensaje = "Vehiculo ya existe";
+                }else{
+                    mensaje = "Vehiculo ingresado correctamente";
+                    vehiculoDao.addVehiculo(vehiculo);
+                }
+                page = "mensaje.jsp";
+                request.setAttribute("mensaje", mensaje);
             }
             else if ("Edit".equalsIgnoreCase(action)){
                 vehiculoDao.editVehiculo(vehiculo);
@@ -139,13 +145,16 @@ public class VehiculoServlet extends HttpServlet {
                 codigo= Integer.parseInt(codigoAux);
             }
             vehiculo = vehiculoDao.getVehiculo(codigo);
+        }else if("Listar".equalsIgnoreCase(action)){
+            request.setAttribute("allVehiculo", vehiculoDao.getAllVehiculos());
+            page ="listarVehiculos.jsp";
         }
         
         
            //Reenvio de objetos hacia la vista (index.jsp)
         request.setAttribute("vehiculo", vehiculo);//si es solo 1 objeto
-        request.setAttribute("allVehiculo", vehiculoDao.getAllVehiculos());
-        request.getRequestDispatcher("vehiculo.jsp").forward(request, response);
+        
+        request.getRequestDispatcher(page).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
