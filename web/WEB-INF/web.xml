@@ -13,10 +13,11 @@
         <servlet-class>com.controlador.VendedorServlet</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
+
         <servlet-name>indexServlet</servlet-name>
         <servlet-class>com.controlador.indexServlet</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>ModeloVehiculoServlet</servlet-name>
         <servlet-class>com.controlador.ModeloVehiculoServlet</servlet-class>
     </servlet>
@@ -32,7 +33,6 @@
     <servlet>
         <servlet-name>VentasServlet</servlet-name>
         <servlet-class>com.controlador.VentasServlet</servlet-class>
->>>>>>> camilo
     </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
@@ -43,10 +43,11 @@
         <url-pattern>/VendedorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
+
         <servlet-name>indexServlet</servlet-name>
         <url-pattern>/indexServlet</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ModeloVehiculoServlet</servlet-name>
         <url-pattern>/ModeloVehiculoServlet</url-pattern>
     </servlet-mapping>
@@ -61,7 +62,7 @@
     <servlet-mapping>
         <servlet-name>VentasServlet</servlet-name>
         <url-pattern>/VentasServlet</url-pattern>
->>>>>>> camilo
+
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="formu">
-            <form action="" method="POST">
+            <form action="./../../ClienteServlet" method="POST">
                 <table>
                     <tr>
                         <th> Documento Cliente</th>
@@ -36,7 +36,7 @@
                         <th> <input type="tel" name="telefono" value="" required="true" size=""/></th>
                     </tr>
                     <tr>
-                        <th><button type="submit" name="action" value="Guardar">Guardar</button></th>
+                        <th><button type="submit" name="action" value="add">Guardar</button></th>
                         <th><button type="reset" value="Cancelar" name="Cancelar">Cancelar</button></th>
                     </tr>
 

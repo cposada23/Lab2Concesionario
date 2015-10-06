@@ -31,12 +31,14 @@ public class ClienteServlet extends HttpServlet {
         String documetoClienteStr;
         String nombre;
         String apellido;
+        int contador=0;
         String email;
         String telefono;
         response.setContentType("text/html;charset=UTF-8");
-        
+        System.out.println("entro");
         //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
+        System.out.println(action);
         
         //Realizo las acciones del boton segun el evento capturado
         if("Add".equalsIgnoreCase(action) || "Edit".equalsIgnoreCase(action) ){
@@ -46,17 +48,31 @@ public class ClienteServlet extends HttpServlet {
             if (documetoClienteStr != null && !documetoClienteStr.equals("")) {
                 documento= Integer.parseInt(documetoClienteStr);
             }
-
+            
+            
             nombre = request.getParameter("nombre");
             apellido = request.getParameter("apellido");
             email = request.getParameter("email");
             telefono = request.getParameter("telefono");
 
-
+            String mensaje;
             //llamo el contructor con parametros
             cliente = new Cliente(documento, nombre, apellido, email, telefono);
             if("Add".equalsIgnoreCase(action)){
-                clienteDAO.addCliente(cliente);
+                Cliente cliente2 = clienteDAO.getCliente(documento);
+                if (cliente2!=null){
+                    mensaje = "El cliente ya existe";
+                    request.setAttribute("cliente", cliente2);
+                }else{
+                    mensaje = "El cliente fue ingresado correctamente";
+                    clienteDAO.addCliente(cliente);
+                    request.setAttribute("cliente", cliente);//si es solo 1 objeto
+                    
+                    
+                }
+                request.setAttribute("mensaje", mensaje);
+                request.getRequestDispatcher("./pages/clientes/mensaje.jsp").forward(request, response);
+                
             }
             else if ("Edit".equalsIgnoreCase(action)){
                 clienteDAO.editCliente(cliente);
@@ -75,11 +91,14 @@ public class ClienteServlet extends HttpServlet {
                 documento= Integer.parseInt(documetoClienteStr);
             }
             cliente = clienteDAO.getCliente(documento);
+        }else if("Listar".equalsIgnoreCase(action)){
+            request.setAttribute("allClientes", clienteDAO.getAllClientes());
+            request.getRequestDispatcher("./pages/clientes/listar.jsp").forward(request, response);
         }
         //Reenvio de objetos hacia la vista (index.jsp)
-        request.setAttribute("cliente", cliente);//si es solo 1 objeto
-        request.setAttribute("allClientes", clienteDAO.getAllClientes());
-        request.getRequestDispatcher("cliente.jsp").forward(request, response);
+        //request.setAttribute("cliente", cliente);//si es solo 1 objeto
+        //request.setAttribute("allClientes", clienteDAO.getAllClientes());
+        //request.getRequestDispatcher("cliente.jsp").forward(request, response);
         
         
     }

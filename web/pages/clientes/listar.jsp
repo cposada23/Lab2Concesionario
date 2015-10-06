@@ -13,6 +13,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
+        <h1>Informacion de Clientes</h1>
+        <form action="./../../ClienteServlet" method="POST">
+                 <input type="submit" name="action" value="Listar"/>
+            </form>
+            <br>
         <table border="1">
                 <th>Documento</th>
                 <th>Nombre</th>
