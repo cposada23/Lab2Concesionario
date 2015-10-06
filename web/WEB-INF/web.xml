@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
     <servlet>
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>com.controlador.ClienteServlet</servlet-class>
@@ -9,8 +13,26 @@
         <servlet-class>com.controlador.VendedorServlet</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>indexServlet</servlet-name>
         <servlet-class>com.controlador.indexServlet</servlet-class>
+=======
+        <servlet-name>ModeloVehiculoServlet</servlet-name>
+        <servlet-class>com.controlador.ModeloVehiculoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>ImagenVehiculoServlet</servlet-name>
+        <servlet-class>com.controlador.ImagenVehiculoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VentasServlet</servlet-name>
+        <servlet-class>com.controlador.VentasServlet</servlet-class>
+>>>>>>> camilo
     </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
@@ -21,14 +43,34 @@
         <url-pattern>/VendedorServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>indexServlet</servlet-name>
         <url-pattern>/indexServlet</url-pattern>
+=======
+        <servlet-name>ModeloVehiculoServlet</servlet-name>
+        <url-pattern>/ModeloVehiculoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImagenVehiculoServlet</servlet-name>
+        <url-pattern>/ImagenVehiculoServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VentasServlet</servlet-name>
+        <url-pattern>/VentasServlet</url-pattern>
+>>>>>>> camilo
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/index.jsp</welcome-file>
+    </welcome-file-list>
     <resource-ref>
         <res-ref-name>jdbc/concesionarioDb</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>

@@ -5,9 +5,8 @@
  */
 package com.controlador;
 
-import com.dao.VendedorDAOLocal;
-import com.modelo.Cliente;
-import com.modelo.Vendedor;
+import com.dao.ModeloVehiculoDAOLocal;
+import com.modelo.ModeloVehiculo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -18,11 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author cposa
+ * @author camilo.posadaa
  */
-public class VendedorServlet extends HttpServlet {
+public class ModeloVehiculoServlet extends HttpServlet {
     @EJB
-    private VendedorDAOLocal vendedorDAO;
+    private ModeloVehiculoDAOLocal modeloVehiculoDAO;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,58 +35,58 @@ public class VendedorServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        ModeloVehiculo modeloVehiculo = null;
+        int codigo;
+        String nombre;
+        String tipo;
+        String codigoStr;
+        
+        
+        
         //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
-        Vendedor vendedor = null;
-        String documetoVendedorStr;
-        String nombre;
-        String apellido;
-        String email;
-        String telefono;
+        
         //Realizo las acciones del boton segun el evento capturado
         if("Add".equalsIgnoreCase(action) || "Edit".equalsIgnoreCase(action) ){
             //Capturamos los datos desde el formulario
-            documetoVendedorStr = request.getParameter("documento");
-            int documento = 0;
-            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
-                documento= Integer.parseInt(documetoVendedorStr);
+            codigoStr = request.getParameter("codigo");
+            codigo = 0;
+            if (codigoStr != null && !codigoStr.equals("")) {
+                codigo= Integer.parseInt(codigoStr);
             }
 
             nombre = request.getParameter("nombre");
-            apellido = request.getParameter("apellido");
-            email = request.getParameter("email");
-            telefono = request.getParameter("telefono");
+            tipo = request.getParameter("tipo");
+            
 
 
             //llamo el contructor con parametros
-            vendedor = new Vendedor(documento, nombre, apellido, email, telefono);
+            modeloVehiculo = new ModeloVehiculo(codigo, nombre, tipo);
             if("Add".equalsIgnoreCase(action)){
-                vendedorDAO.addVendedor(vendedor);
+                modeloVehiculoDAO.addModelo(modeloVehiculo);
             }
             else if ("Edit".equalsIgnoreCase(action)){
-                vendedorDAO.editVendedor(vendedor);
+                modeloVehiculoDAO.editModelo(modeloVehiculo);
             }
         }else if("Delete".equalsIgnoreCase(action)){
-           documetoVendedorStr = request.getParameter("documento");
-           int documento = 0;
-            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
-                documento= Integer.parseInt(documetoVendedorStr);
+           codigoStr = request.getParameter("codigo");
+           codigo = 0;
+            if (codigoStr != null && !codigoStr.equals("")) {
+                codigo= Integer.parseInt(codigoStr);
             }
-           vendedorDAO.deleteVendedor(documento);
+           modeloVehiculoDAO.deleteModeloVehiculo(codigo);
         }else if("Search".equalsIgnoreCase(action)){
-            documetoVendedorStr = request.getParameter("documento");
-            int documento = 0;
-            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
-                documento= Integer.parseInt(documetoVendedorStr);
+            codigoStr = request.getParameter("codigo");
+            codigo = 0;
+            if (codigoStr != null && !codigoStr.equals("")) {
+                codigo= Integer.parseInt(codigoStr);
             }
-            vendedor = vendedorDAO.getVendedor(documento);
+            modeloVehiculo = modeloVehiculoDAO.getModelo(codigo);
         }
-        
-           
         //Reenvio de objetos hacia la vista (index.jsp)
-        request.setAttribute("vendedor", vendedor);//si es solo 1 objeto
-        request.setAttribute("allVendedores", vendedorDAO.getAllVendedores());
-        request.getRequestDispatcher("vendedor.jsp").forward(request, response);
+        request.setAttribute("modeloVehiculo", modeloVehiculo);//si es solo 1 objeto
+        request.setAttribute("allModelos", modeloVehiculoDAO.getAllModelos());
+        request.getRequestDispatcher("modeloVehiculo.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

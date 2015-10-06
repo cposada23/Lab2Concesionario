@@ -5,9 +5,8 @@
  */
 package com.controlador;
 
-import com.dao.VendedorDAOLocal;
-import com.modelo.Cliente;
-import com.modelo.Vendedor;
+import com.dao.VentaDAOLocal;
+import com.modelo.Venta;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
@@ -18,12 +17,15 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author cposa
+ * @author ElMarto
  */
-public class VendedorServlet extends HttpServlet {
-    @EJB
-    private VendedorDAOLocal vendedorDAO;
+public class VentasServlet extends HttpServlet {
     
+
+    
+    @EJB
+    private VentaDAOLocal ventaDAO;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,59 +37,61 @@ public class VendedorServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
         response.setContentType("text/html;charset=UTF-8");
-        //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
-        Vendedor vendedor = null;
-        String documetoVendedorStr;
-        String nombre;
-        String apellido;
-        String email;
-        String telefono;
-        //Realizo las acciones del boton segun el evento capturado
-        if("Add".equalsIgnoreCase(action) || "Edit".equalsIgnoreCase(action) ){
+        Venta venta=null;
+        
+        System.out.println("Entro al servlet");
+        int codigo;
+        String codigoAux;
+        String fecha;
+        String matricula;
+        int vehiculo;
+        int cliente;
+        int vendedor;
+        
+        codigoAux = request.getParameter("codigo");
+        
+        System.out.println(action);
+        System.out.println(codigoAux);
+          //Realizo las acciones del boton segun el evento capturado
+        if("Add".equalsIgnoreCase(action)){
             //Capturamos los datos desde el formulario
-            documetoVendedorStr = request.getParameter("documento");
-            int documento = 0;
-            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
-                documento= Integer.parseInt(documetoVendedorStr);
+            codigoAux = request.getParameter("codigo");
+            codigo = 0;
+            if (codigoAux != null && !codigoAux.equals("")) {
+                codigo= Integer.parseInt(codigoAux);
             }
-
-            nombre = request.getParameter("nombre");
-            apellido = request.getParameter("apellido");
-            email = request.getParameter("email");
-            telefono = request.getParameter("telefono");
-
-
+            fecha = request.getParameter("fecha");
+            matricula = request.getParameter("matricula");
+            vehiculo = Integer.parseInt(request.getParameter("vehiculo"));
+            cliente = Integer.parseInt(request.getParameter("cliente"));
+            vendedor = Integer.parseInt(request.getParameter("vendedor"));
             //llamo el contructor con parametros
-            vendedor = new Vendedor(documento, nombre, apellido, email, telefono);
-            if("Add".equalsIgnoreCase(action)){
-                vendedorDAO.addVendedor(vendedor);
+            //Venta(int codigo, String fecha, String matricula, int vehiculo, int cliente, int vendedor) 
+            venta = new Venta(codigo,  fecha,  matricula,  vehiculo,cliente, vendedor);
+            
+            ventaDAO.addVenta(venta);
+        } 
+        else if("Search".equalsIgnoreCase(action)){
+            codigoAux = request.getParameter("codigo");
+            codigo = 0;
+            if (codigoAux != null && !codigoAux.equals("")) {
+                codigo= Integer.parseInt(codigoAux);
             }
-            else if ("Edit".equalsIgnoreCase(action)){
-                vendedorDAO.editVendedor(vendedor);
-            }
-        }else if("Delete".equalsIgnoreCase(action)){
-           documetoVendedorStr = request.getParameter("documento");
-           int documento = 0;
-            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
-                documento= Integer.parseInt(documetoVendedorStr);
-            }
-           vendedorDAO.deleteVendedor(documento);
-        }else if("Search".equalsIgnoreCase(action)){
-            documetoVendedorStr = request.getParameter("documento");
-            int documento = 0;
-            if (documetoVendedorStr != null && !documetoVendedorStr.equals("")) {
-                documento= Integer.parseInt(documetoVendedorStr);
-            }
-            vendedor = vendedorDAO.getVendedor(documento);
+            venta = ventaDAO.getVenta(codigo);
         }
         
-           
-        //Reenvio de objetos hacia la vista (index.jsp)
-        request.setAttribute("vendedor", vendedor);//si es solo 1 objeto
-        request.setAttribute("allVendedores", vendedorDAO.getAllVendedores());
-        request.getRequestDispatcher("vendedor.jsp").forward(request, response);
+        
+           //Reenvio de objetos hacia la vista (index.jsp)
+        request.setAttribute("venta", venta);//si es solo 1 objeto
+        request.setAttribute("allventas", ventaDAO.listarVentas());
+        request.getRequestDispatcher("ventas.jsp").forward(request, response);
+        
+      
+    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

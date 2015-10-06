@@ -5,11 +5,14 @@
  */
 package com.modelo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -22,7 +25,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="cliente")
 @NamedQueries(@NamedQuery(name="cliente.getAll",query="SELECT c FROM Cliente c"))
-public class Cliente {
+public class Cliente implements Serializable {
 
     public Cliente(int documento, String nombre, String apellido, String email, String telefono) {
         this.documento = documento;
@@ -48,6 +51,10 @@ public class Cliente {
     private String email;
     @Column
     private String telefono;
+    
+//    @JoinColumn(name = "DISCOUNT_CODE", referencedColumnName = "DISCOUNT_CODE")
+//    @ManyToOne(optional = false)
+//    private DiscountCode discountCode;
 
     public int getDocumento() {
         return documento;

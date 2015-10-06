@@ -57,6 +57,7 @@
                 <th>Apellido</th>
                 <th>e-mail</th>
                 <th>telefono</th>
+                <th>foto</th>
                 
                 <c:forEach items="${allVendedores}" var="ven">
                     <tr>
@@ -65,6 +66,7 @@
                         <td>${ven.apellido}</td>
                         <td>${ven.email}</td>
                         <td>${ven.telefono}</td>
+                        <td><img src="vehiculo/image.html?id=1" /></td>
                     </tr>
                 </c:forEach>
            </table>
