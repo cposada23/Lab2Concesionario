@@ -87,7 +87,7 @@ public class VendedorServlet extends HttpServlet {
         //Reenvio de objetos hacia la vista (index.jsp)
         request.setAttribute("vendedor", vendedor);//si es solo 1 objeto
         request.setAttribute("allVendedores", vendedorDAO.getAllVendedores());
-        request.getRequestDispatcher("vendedor.jsp").forward(request, response);
+        request.getRequestDispatcher("pages/vendedor/vendedor.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

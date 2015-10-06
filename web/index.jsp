@@ -23,38 +23,38 @@
                         <ul class="menu">
                             <li><a href="#"><i class="icon-home"></i>VENTAS</a>
                                 <ul class="sub-menu">
-                                    <li><a href="pages/ventas/nuevoVenta.jsp" target="web-view">Nueva</a></li>
+                                    <li><a href="nuevoVenta.jsp" target="web-view">Nueva</a></li>
                                     <li><a href="#">Buscar</a></li>
-                                    <li><a href="pages/ventas/listar.jsp" target="web-view">Listar todos</a></li>
+                                    <li><a href="listarVentas.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>
                             <li><a href="#"><i class="icon-camera"></i>CLIENTE</a>
                                 <ul class="sub-menu">
-                                    <li><a href="pages/clientes/nuevoCliente.jsp" target="web-view">Nuevo</a></li>
-                                    <li><a href="#">Buscar</a></li>
+                                    <li><a href="nuevoCliente.jsp" target="web-view">Nuevo</a></li>
+                                    <li><a href="buscarCliente.jsp" target="web-view">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Compras por cliente</a></li>
-                                    <li><a href="pages/clientes/listar.jsp" target="web-view">Listar todos</a></li>
+                                    <li><a href="listarClientes.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>                            
                             <li><a href="#"><i class="icon-camera"></i>VENDEDOR</a>
                                 <ul class="sub-menu">
-                                    <li><a href="pages/vendedor/nuevoVendedor.jsp" target="web-view">Nuevo</a></li>
+                                    <li><a href="nuevoVendedor.jsp" target="web-view">Nuevo</a></li>
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Ventas por vendedor</a></li>
-                                    <li><a href="pages/vendedor/listar.jsp" target="web-view">Listar todos</a></li>
+                                    <li><a href="pages/vendedor/vendedor.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>
                             <li><a href="#"><i class="icon-camera"></i>VEHICULOS</a>
                                 <ul class="sub-menu">
-                                    <li><a href="pages/vehiculos/nuevoVehiculo.jsp" target="web-view">Nuevo</a></li>
-                                    <li><a href="pages/vehiculos/nuevoModelo.jsp" target="web-view">Nuevo Modelo</a></li>
+                                    <li><a href="nuevoVehiculo.jsp" target="web-view">Nuevo</a></li>
+                                    <li><a href="nuevoModelo.jsp" target="web-view">Nuevo Modelo</a></li>
                                     <li><a href="#">Buscar</a></li>
                                     <li><a href="#">Editar</a></li>
                                     <li><a href="#">Eliminar</a></li>
-                                    <li><a href="pages/vehiculos/listar.jsp" target="web-view">Listar modelos</a></li>
-                                    <li><a href="pages/vehiculos/listarModelos.jsp" target="web-view">Listar todos</a></li>
+                                    <li><a href="listarVehiculos.jsp" target="web-view">Listar modelos</a></li>
+                                    <li><a href="listarModelos.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>
                         </ul>

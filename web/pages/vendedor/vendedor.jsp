@@ -15,7 +15,7 @@
     </head>
      <body>
         <h1>Vendedores</h1>
-        <form action="./VendedorServlet" method="POST">
+        <form action="http://localhost:8080/Lab2Concesionario/VendedorServlet" method="POST">
         <table>
             <tr>
                 <th> Documento Cliente</th>

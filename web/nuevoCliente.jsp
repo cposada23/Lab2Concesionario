@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="../../css/formulario.css" />
+        <link rel="stylesheet" type="text/css" href="css/formulario.css" />
     </head>
     <body>
         <div class="formu">
-            <form action="./../../ClienteServlet" method="POST">
+            <form action="./ClienteServlet" method="POST">
                 <table>
                     <tr>
                         <th> Documento Cliente</th>

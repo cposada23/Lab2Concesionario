@@ -39,6 +39,8 @@ public class ClienteServlet extends HttpServlet {
         //Action sirve para tomar el evento del boton
         String action = request.getParameter("action");
         System.out.println(action);
+        String page = null;
+          String mensaje=null;
         
         //Realizo las acciones del boton segun el evento capturado
         if("Add".equalsIgnoreCase(action) || "Edit".equalsIgnoreCase(action) ){
@@ -55,23 +57,23 @@ public class ClienteServlet extends HttpServlet {
             email = request.getParameter("email");
             telefono = request.getParameter("telefono");
 
-            String mensaje;
+          
             //llamo el contructor con parametros
             cliente = new Cliente(documento, nombre, apellido, email, telefono);
             if("Add".equalsIgnoreCase(action)){
                 Cliente cliente2 = clienteDAO.getCliente(documento);
                 if (cliente2!=null){
                     mensaje = "El cliente ya existe";
-                    request.setAttribute("cliente", cliente2);
+                    cliente=cliente2;
+                   // request.setAttribute("cliente", cliente2);
                 }else{
                     mensaje = "El cliente fue ingresado correctamente";
                     clienteDAO.addCliente(cliente);
-                    request.setAttribute("cliente", cliente);//si es solo 1 objeto
-                    
-                    
+                  
                 }
-                request.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("./pages/clientes/mensaje.jsp").forward(request, response);
+                
+                //request.getRequestDispatcher("./pages/clientes/mensaje.jsp").forward(request, response);
+                page ="./mensaje.jsp";
                 
             }
             else if ("Edit".equalsIgnoreCase(action)){
@@ -91,14 +93,23 @@ public class ClienteServlet extends HttpServlet {
                 documento= Integer.parseInt(documetoClienteStr);
             }
             cliente = clienteDAO.getCliente(documento);
+            if (cliente!=null){
+                request.setAttribute("cliente", cliente);//si es solo 1 objeto
+                //request.getRequestDispatcher("./pages/clientes/buscar.jsp").forward(request, response);
+                page="./mensajeCliente.jsp";
+            }
         }else if("Listar".equalsIgnoreCase(action)){
-            request.setAttribute("allClientes", clienteDAO.getAllClientes());
-            request.getRequestDispatcher("./pages/clientes/listar.jsp").forward(request, response);
+            
+            //request.getRequestDispatcher("./pages/clientes/listar.jsp").forward(request, response);
+            page = "./listarClientes.jsp";
         }
         //Reenvio de objetos hacia la vista (index.jsp)
         //request.setAttribute("cliente", cliente);//si es solo 1 objeto
         //request.setAttribute("allClientes", clienteDAO.getAllClientes());
-        //request.getRequestDispatcher("cliente.jsp").forward(request, response);
+        request.setAttribute("allClientes", clienteDAO.getAllClientes());
+          request.setAttribute("cliente", cliente);//si es solo 1 objeto
+        request.setAttribute("mensaje", mensaje);
+        request.getRequestDispatcher(page).forward(request, response);
         
         
     }

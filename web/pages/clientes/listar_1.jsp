@@ -34,6 +34,7 @@
                         <th>${ven.apellido}</th>
                         <th>${ven.email}</th>
                         <th>${ven.telefono}</th>
+                        <th><input /></th>
                         
                     </tr>
                 </c:forEach>

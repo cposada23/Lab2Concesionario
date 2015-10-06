@@ -36,11 +36,12 @@ public class ModeloVehiculoServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         ModeloVehiculo modeloVehiculo = null;
+        ModeloVehiculo modeloVehiculo2= null;
         int codigo;
         String nombre;
         String tipo;
         String codigoStr;
-        
+        String mensaje=null;
         
         
         //Action sirve para tomar el evento del boton
@@ -58,11 +59,14 @@ public class ModeloVehiculoServlet extends HttpServlet {
             nombre = request.getParameter("nombre");
             tipo = request.getParameter("tipo");
             
+            modeloVehiculo2 = modeloVehiculoDAO.getModelo(codigo);
 
-
-            //llamo el contructor con parametros
+           
             modeloVehiculo = new ModeloVehiculo(codigo, nombre, tipo);
             if("Add".equalsIgnoreCase(action)){
+                if (modeloVehiculo2!=null){
+                    
+                }
                 modeloVehiculoDAO.addModelo(modeloVehiculo);
             }
             else if ("Edit".equalsIgnoreCase(action)){

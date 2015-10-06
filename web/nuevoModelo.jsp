@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="../../css/formulario.css" />
+        <link rel="stylesheet" type="text/css" href="css/formulario.css" />
     </head>
     <body>
         <div class="formu">
@@ -17,15 +17,15 @@
                 <table>
                     <tr>
                         <th> Codigo modelo</th>
-                        <th><input type="text" name="codigo" value="${modeloVehiculo.codigo}" required="true" size=""/> </th>
+                        <th><input type="text" name="codigo" required="true" size=""/> </th>
                     </tr>
                     <tr>
                         <th> Nombre</th>
-                        <th> <input type="text" name="nombre" value="${modeloVehiculo.nombre}" required="true" size=""/></th>
+                        <th> <input type="text" name="nombre"  required="true" size=""/></th>
                     </tr>
                     <tr>
                         <th>Tipo</th>
-                        <th><input type="text" name="tipo" value="${modeloVehiculo.tipo}" required="true" size="" /> </th>
+                        <th><input type="text" name="tipo"  required="true" size="" /> </th>
                     </tr>                    
                     <tr>
 
