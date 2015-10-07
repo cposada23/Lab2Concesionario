@@ -13,27 +13,27 @@
     </head>
     <body>
         <div class="formu">
-            <form action="./../../VendedorServlet" method="POST">
+            <form action="./VendedorServlet" method="POST">
                 <table>
                     <tr>
                         <th> Documento vendedor</th>
-                        <th><input type="number" name="documento" value="${vendedor.documento}" required="true" size="" /> </th>
+                        <th><input type="number" name="documento"  required="true" size="" /> </th>
                     </tr>
                     <tr>
                         <th> Nombre</th>
-                        <th> <input type="text" name="nombre" value="${vendedor.nombre}" required="true" size="" /></th>
+                        <th> <input type="text" name="nombre"  required="true" size="" /></th>
                     </tr>
                     <tr>
                         <th>Apelido</th>
-                        <th><input type="text" name="apellido" value="${vendedor.apellido}" required="true" size="" /> </th>
+                        <th><input type="text" name="apellido" required="true" size="" /> </th>
                     </tr>
                     <tr>
                         <th> e-mail</th>
-                        <th> <input type="email" name="email" value="${vendedor.email}" required="true" size="" /></th>
+                        <th> <input type="email" name="email"  required="true" size="" /></th>
                     </tr>
                     <tr>
                         <th> Telefono</th>
-                        <th> <input type="tel" name="telefono" value="${vendedor.telefono}" required="true" size="" /></th>
+                        <th> <input type="tel" name="telefono" required="true" size="" /></th>
                     </tr>
                     <tr>
 
@@ -44,7 +44,9 @@
                     </tr>
 
                 </table>
+                    <h1>${mensaje} </h1>
             </form>
         </div>
+                    
     </body>
 </html>

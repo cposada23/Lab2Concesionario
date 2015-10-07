@@ -28,6 +28,7 @@
                     </tr>
                 </table>
             </form>
+        </div>
                     
         <table border="1">
             <th>Codigo</th>

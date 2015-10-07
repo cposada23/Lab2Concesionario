@@ -53,6 +53,14 @@ public class VentaDAO implements VentaDAOLocal {
         query.setParameter("vendedor", vendedor);
         return query.getResultList();
     }
+    
+    @Override
+    public List<Venta> getVentaxMatricula(String matricula) {
+        Query query =em.createQuery("Select v FROM Venta v WHERE v.matricula=:matricula");
+        query.setParameter("matricula", matricula);
+        
+        return query.getResultList();
+    }
   
     
     

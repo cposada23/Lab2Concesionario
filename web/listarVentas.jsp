@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <form action="./VentasServlet" method="POST">
+                 <input type="submit" name="action" value="Listar"/>
+            </form>
         <table border="1">
             <th>Codigo Venta</th>
             <th>Fecha</th>
@@ -20,7 +24,7 @@
             <th>Documento Cliente</th>
             <th>Documento Vendedor</th>
 
-            <c:forEach items="${allVendedores}" var="ven">
+            <c:forEach items="${a}" var="ven">
                 <tr>
                     <th>${ven.codigo}</th>
                     <th>${ven.fecha}</th>
@@ -31,5 +35,6 @@
                 </tr>
             </c:forEach>
         </table>
+                <h1>${mensaje}</h1>
     </body>
 </html>

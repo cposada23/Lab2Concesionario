@@ -1,7 +1,7 @@
 <%-- 
     Document   : listar
     Created on : 3/10/2015, 05:14:46 PM
-    Author     : alejandro
+    Author     : elmarto
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,8 +14,8 @@
     </head>
     <body>
         
-        <h1>Informacion de Clientes</h1>
-        <form action="./ClienteServlet" method="POST">
+        <h1>Informacion de Vendedores</h1>
+        <form action="./VendedorServlet" method="POST">
                  <input type="submit" name="action" value="Listar"/>
             </form>
             <br>
@@ -27,7 +27,7 @@
                 <th>telefono</th>
                 
                 
-                <c:forEach items="${allClientes}" var="ven">
+                <c:forEach items="${allVendedores}" var="ven">
                     <tr>
                         <th>${ven.documento}</th>
                         <th>${ven.nombre}</th>
