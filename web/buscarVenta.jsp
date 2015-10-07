@@ -21,9 +21,9 @@
                         <th><input type="text" name="matricula" required="true" size=""/> </th>
                     </tr>    
                     <tr>
-
-                        <th><button type="reset" >Cancelar</button></th>
                         <th><button type="submit" name="action" value="Search">Buscar</button></th>
+                        <th><button type="reset" >Cancelar</button></th>
+                        
 
                         </td>
                     </tr>

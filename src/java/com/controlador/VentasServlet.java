@@ -143,13 +143,13 @@ public class VentasServlet extends HttpServlet {
            
            List vent = ventaDAO.getVentaxMatricula(matricula);
             //System.out.println(vent.size());
-            if(vent!=null){
+            if(!vent.isEmpty()){
                  
                   venta= (Venta)vent.get(0);
                   request.setAttribute("venta", venta);
                   
             }else{
-                mensaje="No existe";
+                mensaje="No existe venta con matricula: "+matricula;
                 request.setAttribute("mensaje", mensaje);
             }
             page = "./buscarVenta.jsp";
