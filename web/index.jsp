@@ -24,7 +24,7 @@
                             <li><a href="#"><i class="icon-home"></i>VENTAS</a>
                                 <ul class="sub-menu">
                                     <li><a href="nuevoVenta.jsp" target="web-view">Nueva</a></li>
-                                    <li><a href="#">Buscar</a></li>
+                                    <li><a href="buscarVenta.jsp" target="web-view">Buscar</a></li>
                                     <li><a href="listarVentas.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
                             </li>

@@ -25,6 +25,8 @@ public interface VentaDAOLocal {
     List<Venta> getventaxCliente(int cliente);
 
     List<Venta> getVentaxVendedor(int vendedor);
+
+     public List<Venta> getVentaxMatricula(String matricula);
     
     
     

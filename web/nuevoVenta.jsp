@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="formu">
-            <form action="" method="POST">
+            <form action="./VentasServlet" method="POST">
                 <table>
                     <tr>
                         <th> Codigo Venta</th>
@@ -40,13 +40,19 @@
                         <th> <input type="number" name="vendedor" value="" required="true" size=""/></th>
                     </tr>                    
                     <tr>
-                        <th><button type="submit" name="action" value="Guardar">Guardar</button></th>
+                        
                         <th><button type="reset" value="Cancelar" name="Cancelar">Cancelar</button></th>
+                        <th><button type="submit" name="action" value="Add">Guardar</button></th>
                     </tr>
 
                 </table>
+                <h1>${mensaje}</h1>
+                <h2>${venta3[0].matricula} </h2> 
             </form>
-
-        </div>
+             </div>
+  
+           
+            
+       
     </body>
 </html>
