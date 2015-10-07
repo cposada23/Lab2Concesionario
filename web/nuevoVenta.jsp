@@ -10,10 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/formulario.css" />
+        
     </head>
     <body>
         <div class="formu">
-            <form action="./VentasServlet" method="POST">
+            <form  method="POST" action="./VentasServlet">
                 <table>
                     <tr>
                         <th> Codigo Venta</th>
@@ -25,10 +26,17 @@
                     </tr>
                     <tr>
                         <th>Matricula</th>
+                        
                         <th><input type="text" name="matricula" value="" required="true" size="50"/> </th>
                     </tr>
                     <tr>
                         <th>Codigo Vehiculo</th>
+                        <!--<th><select>
+                          <option value="volvo">Volvo</option>
+                          <option value="saab">Saab</option>
+                          <option value="vw">VW</option>
+                          <option value="audi" selected>Audi</option>
+                        </select></th>-->
                         <th> <input type="number" name="vehiculo" value="" required="true" size=""/></th>
                     </tr>
                     <tr>

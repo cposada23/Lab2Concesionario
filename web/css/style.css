@@ -87,15 +87,20 @@ p{
     display:block;
     color:#000;
 
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    -moz-transition: all 0.2s ease-in-out 0s;
-    -o-transition: all 0.2s ease-in-out 0s;
-    -ms-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
+    -webkit-transition: all 0.8s ease-in-out 1s;
+    -moz-transition: all 0.8s  ease-in-out 1s;
+    -o-transition: all 0.8s  ease-in-out 1s;
+    -ms-transition: all 0.8s  ease-in-out 1s;
+    transition: all 0.8s  ease-in-out 1s;
 }
 
 .menu li a:hover, .menu li:hover > a{color:#ffffff;
-                                     background:#9CA3DA;}
+                                     background:#9CA3DA;
+-webkit-transition:all 2s ease;
+   -moz-transition:all 2s ease;
+   -o-transition:all 2s ease;
+   transition:all 2s ease;
+}
 
 /* hide the second level menu */
 .menu ul {display: none;
@@ -109,7 +114,13 @@ p{
 }
 
 /* display second level menu on hover */
-.menu li:hover > ul{ display: block;}
+.menu li:hover > ul{
+    display: block;
+    -webkit-transition:all 2s ease;
+   -moz-transition:all 2s ease;
+   -o-transition:all 2s ease;
+   transition:all 2s ease;
+}
 
 .menu ul li {display:block;
              float: none;
@@ -129,6 +140,11 @@ p{
     background:#f0f0f0;
     border-left:3px solid #9CA3DA;
     color:#797979;
+    
+    -webkit-transition:all 2s ease;
+   -moz-transition:all 2s ease;
+   -o-transition:all 2s ease;
+   transition:all 2s ease;
 }
 
 /* change level 3 menu positions */
