@@ -77,6 +77,9 @@ public class ClienteServlet extends HttpServlet {
                 
             }
             else if ("Edit".equalsIgnoreCase(action)){
+                
+                page = "./editarCliente.jsp";
+                mensaje = "Cliente editado correctamente";
                 clienteDAO.editCliente(cliente);
             }
         }else if("Delete".equalsIgnoreCase(action)){
@@ -96,7 +99,11 @@ public class ClienteServlet extends HttpServlet {
             if (cliente!=null){
                 request.setAttribute("cliente", cliente);//si es solo 1 objeto
                 //request.getRequestDispatcher("./pages/clientes/buscar.jsp").forward(request, response);
-                page="./mensajeCliente.jsp";
+                page="./editarCliente.jsp";
+                mensaje ="Ingrese los datos que quiere editar";
+            }
+            else{
+                mensaje ="Cliente no existe";
             }
         }else if("Listar".equalsIgnoreCase(action)){
             
@@ -107,7 +114,7 @@ public class ClienteServlet extends HttpServlet {
         //request.setAttribute("cliente", cliente);//si es solo 1 objeto
         //request.setAttribute("allClientes", clienteDAO.getAllClientes());
         request.setAttribute("allClientes", clienteDAO.getAllClientes());
-          request.setAttribute("cliente", cliente);//si es solo 1 objeto
+        request.setAttribute("cliente", cliente);//si es solo 1 objeto
         request.setAttribute("mensaje", mensaje);
         request.getRequestDispatcher(page).forward(request, response);
         

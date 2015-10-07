@@ -31,8 +31,8 @@
                             <li><a href="#"><i class="icon-camera"></i>CLIENTE</a>
                                 <ul class="sub-menu">
                                     <li><a href="nuevoCliente.jsp" target="web-view">Nuevo</a></li>
-                                    <li><a href="buscarCliente.jsp" target="web-view">Buscar</a></li>
-                                    <li><a href="#">Editar</a></li>
+                                    <li><a href="editarCliente.jsp" target="web-view">Buscar</a></li>
+                                    <li><a href="editarCliente.jsp" target="web-view">Editar</a></li>
                                     <li><a href="#">Compras por cliente</a></li>
                                     <li><a href="listarClientes.jsp" target="web-view">Listar todos</a></li>
                                 </ul>
