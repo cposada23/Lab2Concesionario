@@ -37,6 +37,7 @@
             <th>Codigo Vehiculo</th>
             <th>Documento Cliente</th>
             <th>Documento Vendedor</th>
+            <th>Foto vehiculo</th>
 
             
                 <tr>
@@ -46,6 +47,7 @@
                     <th>${venta.vehiculo}</th>
                     <th>${venta.cliente}</th>
                     <th>${venta.vendedor}</th>
+                    <th><img src="vehiculo/image.html?id=${venta.vehiculo}" /></td>
                 </tr>
             
         </table>
