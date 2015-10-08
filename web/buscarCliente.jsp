@@ -10,10 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Informacion de Clientes</h1>
+        <h1>Buscador de Clientes</h1>
         <form action="./ClienteServlet" method="POST">
         <table>
             <tr>

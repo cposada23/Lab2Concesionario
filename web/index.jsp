@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Concesionario UdeA</title>
         <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
     <body class="index">
@@ -31,7 +31,7 @@
                             <li><a href="#"><i class="icon-camera"></i>CLIENTE</a>
                                 <ul class="sub-menu">
                                     <li><a href="nuevoCliente.jsp" target="web-view">Nuevo</a></li>
-                                    <li><a href="editarCliente.jsp" target="web-view">Buscar</a></li>
+                                    <li><a href="buscarCliente.jsp" target="web-view">Buscar</a></li>
                                     <li><a href="editarCliente.jsp" target="web-view">Editar</a></li>
                                     <li><a href="#">Compras por cliente</a></li>
                                     <li><a href="listarClientes.jsp" target="web-view">Listar todos</a></li>

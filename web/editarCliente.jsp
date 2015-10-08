@@ -10,10 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="css/formulario.css" />
     </head>
     <body>
-         <h1>Informacion de Clientes</h1>
         <form action="./ClienteServlet" method="POST">
         <table>
             <tr>
@@ -37,12 +36,12 @@
                  <th> <input type="text" name="telefono" value="${cliente.telefono}"/></th>
             </tr>
              <tr>
-                 <td colspan="2">
+                 <th colspan="2">
                 
-                 <input type="submit" name="action" value="Edit"/>
+                     <input type="submit" name="action" value="Edit"/></th><th>
                  <input type="submit" name="action" value="Search"/>
                  
-                 </td>
+                 </th>
              </tr>
             
         </table>

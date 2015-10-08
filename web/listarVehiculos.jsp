@@ -13,7 +13,7 @@
         <title>Listar Vehiculos</title>
     </head>
     <body>
-        <h1>Informacion de Modelos</h1>
+        <h1>Informacion de Vehículos</h1>
         <form action="./VehiculoServlet" method="POST">
              <input type="submit" name="action" value="Listar"/>
         </form>
